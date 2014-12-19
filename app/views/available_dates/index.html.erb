@@ -1,0 +1,27 @@
+<h1>Listing available_dates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Avail</th>
+      <th>Product</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @available_dates.each do |available_date| %>
+      <tr>
+        <td><%= available_date.avail %></td>
+        <td><%= available_date.product %></td>
+        <td><%= link_to 'Show', available_date %></td>
+        <td><%= link_to 'Edit', edit_available_date_path(available_date) %></td>
+        <td><%= link_to 'Destroy', available_date, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Available date', new_available_date_path %>

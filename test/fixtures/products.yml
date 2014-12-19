@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  price: 9.99
+  capacity: 1
+  longitude: 1.5
+  latitude: 1.5
+  street: MyString
+  suburb: MyString
+  city: MyString
+  state: MyString
+  contact_name: MyString
+  contact_number: MyString
+  contact_email: MyString
+
+two:
+  name: MyString
+  description: MyText
+  price: 9.99
+  capacity: 1
+  longitude: 1.5
+  latitude: 1.5
+  street: MyString
+  suburb: MyString
+  city: MyString
+  state: MyString
+  contact_name: MyString
+  contact_number: MyString
+  contact_email: MyString
