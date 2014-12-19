@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
+  get 'home/about'
+
+  get 'home/contact'
+
+  get 'home/faq'
+
+  get 'home/terms'
+
   resources :extras
 
   resources :available_dates
