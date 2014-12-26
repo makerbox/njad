@@ -1,3 +1,23 @@
-<div class='navigation'>
-	
+<div class='navigation row'>
+	<div class='col-xs-2 logo'>
+		<%= image_tag 'logo.png', alt: 'Not Just a Date logo', class: 'logo' %>
+	</div>
+	<div class='col-xs-2 navbutton'>
+		<div id="title">Not Just a Date</div>
+	</div>
+	<div class='col-xs-2 navbutton'>
+		<%= link_to 'Browse', products_path %>
+	</div>
+	<div class='col-xs-2'>
+	</div>
+	<div class='col-xs-2 navbutton'>
+		<% if user_signed_in? %>
+			<%= link_to 'Profile', profile_path(current_user.profile) %>
+		<% else %>
+			<%= link_to 'Sign Up', new_user_registration_path %>
+		<% end %>
+	</div>
+	<div class='col-xs-2 navbutton'>
+		Log In
+	</div>
 </div>
