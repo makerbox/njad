@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
+	resourcify
+
 	has_many :available_dates
 	has_many :product_extras
 	has_many :extras, through: :product_extras
@@ -9,4 +11,11 @@ class Product < ActiveRecord::Base
 	has_many :users, through: :reviews
 	has_many :purchases
 	has_many :users, through: :purchases
+
+	def full_street_address
+    	[street, suburb, city, state].compact.join(',')
+	end
+
+	geocoded_by :full_street_address
+	after_validation :geocode
 end
