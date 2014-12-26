@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 
+#form simplicity
+gem 'simple_form'
+
 #monetization
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 

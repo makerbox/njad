@@ -11,7 +11,7 @@
 	<div class='col-xs-2'>
 	</div>
 	<div class='col-xs-2 navbutton'>
-		<% if user_signed_in? %>
+		<% if user_signed_in? && current_user.profile %>
 			<%= link_to 'Profile', profile_path(current_user.profile) %>
 		<% else %>
 			<%= link_to 'Sign Up', new_user_registration_path %>

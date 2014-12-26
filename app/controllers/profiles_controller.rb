@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  respond_to :html
 
   def index
     @profiles = Profile.all
@@ -20,6 +21,7 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = Profile.new(profile_params)
+    @profile.user = current_user
     @profile.save
     respond_with(@profile)
   end
