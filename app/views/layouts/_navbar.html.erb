@@ -18,6 +18,9 @@
 				<%= link_to 'Create Your Profile', new_profile_path %>
 			<% end %>
 		</div>
+		<div class='col-xs-2 navbutton'>
+			<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+		</div>
 	<% else %>
 		<div class='col-xs-2 navbutton'>
 			<%= link_to 'Sign Up', new_user_registration_path %>
