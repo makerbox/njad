@@ -1,0 +1,176 @@
+$brown: #33291F;
+$pink: #FCCB99;
+$blue: #82D4F6;
+$red: #D83962;
+$white: #FFFFFF;
+@import url(http://fonts.googleapis.com/css?family=Bitter:400,700|Open+Sans:400,700);
+
+body{
+	font-family: Open Sans;
+	background-color: $pink;
+}
+
+.center-align{
+	text-align: center;
+}
+.left-align{
+	text-align: left;
+}
+.right-align{
+	text-align: right;
+}
+.blue{
+	background-color: $blue;
+}
+.brown{
+	background-color: $brown;
+}
+.red{
+	background-color: $red;
+}
+.pink{
+	background-color: $pink;
+}
+.white{
+	background-color: $white;
+}
+
+.container {
+	padding-top: 8em;
+	background-color: $white;
+	border:  .5em solid $brown;
+	border-bottom: none;
+	padding-bottom: 1.5em;
+	min-height: 49em;
+}
+
+.footer{
+	text-align: center;
+	font-weight: bold;
+	padding: .5em;
+	position: fixed;
+	margin: 0;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	border-top: .5em solid $brown;
+	background-color: $blue;
+	color: $red;
+}
+
+.navigation {
+	font-size: 1.9em;
+	background-color: $blue;
+	border-bottom: .5em solid $brown;
+	font-family: bitter;
+	text-align: center;
+	position: fixed;
+	margin: 0;
+	width: 100%;
+	left: 0;
+	top: 0;
+}
+
+.navigation a, .navigation a:hover, .navigation a:visited {
+	color: $brown;
+	text-decoration: none;
+	cursor: pointer;
+	background-color: transparent;
+
+}
+
+.navbutton {
+	padding:1.25em;
+}
+
+.actionbutton{
+	font-size: 2em;
+	text-align: center;
+	color: $brown;
+	width: 5em;
+	height: 5em;
+	border-radius: 50%;
+	padding: .7em;
+	border: none;
+	margin-top: -1.8em;
+}
+
+.logo{
+	padding-top: .25em;
+	max-width: 100%;
+	max-height: 3.5em;
+}
+
+#title {
+	text-align: center;
+	color: $red;
+	font-weight: bold;
+}
+
+.product_title{
+	font-size: 2em;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+/* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* Desktop small window ----------- */
+@media only screen 
+and (max-width : 700px) {
+
+.navigation {
+	font-size: .9em;
+}
+
+}
+
+
+.ribbon {    
+ position: relative;
+ background: $red;
+ text-align: center;
+ margin-top: 5em;
+ height: 3em;
+ margin-bottom: 5em;
+}
+
+.ribbon:before, .ribbon:after {
+ content: "";
+ position: absolute;
+ display: block;
+ bottom: -2em;
+ border: 1.5em solid $red;
+ z-index: -1;
+}
+.ribbon:before {
+ left: -3em;
+ border-left-color: transparent;
+}
+.ribbon:after {
+ right: -3em;
+ border-right-color: transparent;
+}
+
+.ribbon .ribbon-content:before, .ribbon .ribbon-content:after {
+ content: "";
+ position: absolute;
+ display: block;
+ bottom: -1em;
+}
+.ribbon .ribbon-content:before {
+ left: 0;
+}
+.ribbon .ribbon-content:after {
+ right: 0;
+}

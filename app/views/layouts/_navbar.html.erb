@@ -8,7 +8,11 @@
 	<div class='col-xs-2 navbutton'>
 		<%= link_to 'Browse', products_path %>
 	</div>
-	<div class='col-xs-2'>
+	<div class='col-xs-2 navbutton'>
+		<% if current_user.profile %>
+			Hello, 
+			<%= current_user.profile.first_name %>
+		<% end %>
 	</div>
 	<% if user_signed_in? %>
 		<div class='col-xs-2 navbutton'>

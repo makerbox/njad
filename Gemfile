@@ -19,6 +19,9 @@ gem 'cancan'
 #geocoding
 gem 'geocoder'
 
+#social sharing
+gem 'social-share-button'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
