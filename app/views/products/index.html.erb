@@ -1,7 +1,12 @@
 <div class="row center-align">
   <div class="col-md-12">
     Find an experience<br>
-    search field <i class="fa fa-search"></i>
+    <%= form_tag(products_path, method: "GET") do %>
+        <%= text_field_tag(:search_input, nil, placeholder: "location, keyword, or date", id:'searchfield') %>
+        <button type='submit' class='cleanbutton' id='searchbutton'>
+          <i class='fa fa-search'></i>
+        </button>
+      <% end %>
   </div>
 </div>
 
