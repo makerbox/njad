@@ -69,6 +69,7 @@ body{
 	width: 100%;
 	left: 0;
 	top: 0;
+	z-index: 4;
 }
 
 .navigation a, .navigation a:hover, .navigation a:visited {
@@ -96,7 +97,7 @@ body{
 }
 
 .logo{
-	padding-top: .25em;
+	padding: .25em;
 	max-width: 100%;
 	max-height: 3.5em;
 }
@@ -118,6 +119,8 @@ body{
 	padding-left: 1em;
 	padding-right: 2em;
 	border: 3px solid $brown;
+	max-width: 100%;
+	margin-top: 1em;
 }
 
 #searchbutton{
@@ -136,31 +139,7 @@ body{
 	border-radius: none;
 }
 
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
-/* Styles */
-}
-
-/* iPads (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) {
-/* Styles */
-}
-
-/* Desktop small window ----------- */
-@media only screen 
-and (max-width : 700px) {
-
-.navigation {
-	font-size: .9em;
-}
-
-}
-
-
+/* RIBBON STYLE -----------------------------------------------*/
 .ribbon {    
  position: relative;
  background: $red;
@@ -199,3 +178,50 @@ and (max-width : 700px) {
 .ribbon .ribbon-content:after {
  right: 0;
 }
+/* END OF RIBBON STYLE --------------------------------------------- */
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+.navigation {
+	font-size: .9em;
+}
+
+.logo{
+	padding: .25em;
+	max-width: 100%;
+}
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+.navigation {
+	font-size: .9em;
+}
+
+.logo{
+	padding: .1em;
+	max-width: 100%;
+}
+}
+
+/* Desktop small window ----------- */
+@media only screen 
+and (max-width : 700px) {
+
+.navigation {
+	font-size: .9em;
+}
+
+.logo{
+	padding: .1em;
+	max-width: 100%;
+}
+
+}
+
+

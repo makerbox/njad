@@ -11,6 +11,15 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    if params[:search_input]
+      search_input = params[:search_input]
+      findthis = search_input.downcase
+      if Product.near(search_input, 10, :units => :km).any?
+        @products = Product.near(search_input, 10, :units => :km)
+      else
+        @products = Product.where('lower(description) LIKE ? OR lower(street) LIKE ? OR lower(suburb) LIKE ? OR lower(state) LIKE ? OR lower(city) LIKE ?', "%#{findthis}%", findthis, findthis, findthis, findthis)
+      end
+    end
     respond_with(@products)
   end
 

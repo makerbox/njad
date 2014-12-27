@@ -1,20 +1,39 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+	<div class="col-sm-4">
+		<p id="notice"><%= notice %></p>
+		<h2>My details</h2>
+		<p>
+		  <strong>Name:</strong>
+		  <%= @profile.first_name %> <%= @profile.last_name %>
+		</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @profile.first_name %> <%= @profile.last_name %>
-</p>
+		<p>
+		  <strong>Phone:</strong>
+		  <%= @profile.phone %>
+		</p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @profile.phone %>
-</p>
+		<p>
+		  <strong>Email:</strong>
+		  <%= @profile.user.email %>
+		</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @profile.user.email %>
-</p>
+		<% if @profile == current_user.profile %>
+			<%= link_to 'Edit', edit_profile_path(@profile) %>
+		<% end %>
+		<hr>
+		<h2>My Groups</h2>
+		<p>
+			GROUPS (add group button)
+		</p>
 
-<% if @profile == current_user.profile %>
-	<%= link_to 'Edit My Profile', edit_profile_path(@profile) %>
-<% end %>
+	</div>
+
+	<div class="col-sm-4">
+		<h2>My Wishlist</h2>
+	</div>
+
+	<div class="col-sm-4">
+		<h2>My History</h2>
+	</div>
+
+</div>

@@ -1,6 +1,5 @@
 <div class="row center-align">
-  <div class="col-md-12">
-    Find an experience<br>
+  <div class="col-xs-12">
     <%= form_tag(products_path, method: "GET") do %>
         <%= text_field_tag(:search_input, nil, placeholder: "location, keyword, or date", id:'searchfield') %>
         <button type='submit' class='cleanbutton' id='searchbutton'>
@@ -9,29 +8,35 @@
       <% end %>
   </div>
 </div>
-
+<hr>
 <div class="row">
-  <% @products.each do |product| %>
-    <div class="col-md-4 col-xs-12" style="border: 1px solid black;">
-      <div class="col-md-12 col-xs-6">
-        images.first
+  <% if @products.any? %>
+    <% @products.each do |product| %>
+      <div class="col-md-4 col-xs-12" style="border: 1px solid black;">
+        <div class="col-md-12 col-xs-6">
+          images.first
+        </div>
+        <div class="col-md-12 col-xs-6">
+          <div class="col-md-9 product_title">
+            <%= product.name %>
+          </div>
+          <div class="col-md-3">
+            <%= product.city %>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="col-xs-9">
+            <%= product.description %>
+          </div>
+          <div class="col-xs-3">
+            <%= product.price %>
+          </div>
+        </div>
       </div>
-      <div class="col-md-12 col-xs-6">
-        <div class="col-md-9 product_title">
-          <%= product.name %>
-        </div>
-        <div class="col-md-3">
-          location
-        </div>
-      </div>
-      <div class="col-md-12">
-        <div class="col-xs-9">
-          <%= product.description %>
-        </div>
-        <div class="col-xs-3">
-          <%= product.price %>
-        </div>
-      </div>
+    <% end %>
+  <% else %>
+    <div class="col-xs-12 center-align">
+      No products match your search, try again!
     </div>
   <% end %>
 </div>
