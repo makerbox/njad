@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: notjustadate
+  api_key: '126932583444367'
+  api_secret: sMwc-rb9SJi2dpjcIBiLynsLWA8
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: notjustadate
+  api_key: '126932583444367'
+  api_secret: sMwc-rb9SJi2dpjcIBiLynsLWA8
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: notjustadate
+  api_key: '126932583444367'
+  api_secret: sMwc-rb9SJi2dpjcIBiLynsLWA8
+  enhance_image_tag: true
+  static_image_support: false

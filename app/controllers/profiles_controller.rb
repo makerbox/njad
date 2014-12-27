@@ -8,6 +8,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @groups = current_user.groups
     respond_with(@profile)
   end
 

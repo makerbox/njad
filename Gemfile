@@ -12,6 +12,9 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 #authentication
 gem 'devise'
 
+#email
+gem 'devise_invitable'
+
 #authorization
 gem 'rolify'
 gem 'cancan'

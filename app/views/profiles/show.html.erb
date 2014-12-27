@@ -18,12 +18,12 @@
 		</p>
 
 		<% if @profile == current_user.profile %>
-			<%= link_to 'Edit', edit_profile_path(@profile) %>
+			<%= link_to 'Edit', edit_profile_path(@profile), class: 'lesserbutton' %>
 		<% end %>
 		<hr>
 		<h2>My Groups</h2>
 		<p>
-			GROUPS (add group button)
+			<%= render 'groups/index' %>
 		</p>
 
 	</div>

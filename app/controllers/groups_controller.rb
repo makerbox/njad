@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
+  respond_to :html
 
   def index
     @groups = Group.all
@@ -20,8 +21,12 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
+    @membership = Membership.new
+    @membership.user = current_user
+    @membership.group = @group
+    @membership.save
     @group.save
-    respond_with(@group)
+    respond_with(@group, location: profile_path(current_user.profile))
   end
 
   def update

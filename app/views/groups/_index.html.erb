@@ -1,0 +1,8 @@
+	<% @groups.each do |group| %>
+    <%= link_to group.name, group %>
+    <%= link_to 'Edit', edit_group_path(group), class: 'lesserbutton' %>
+    <%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' }, class: 'dangerbutton' %>
+  
+<% end %>
+<br>
+<%= link_to 'Make a Group', new_group_path, class:'basicbutton' %>
