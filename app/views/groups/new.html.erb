@@ -1,8 +1,7 @@
 <div class="row">
 	<div class="col-md-6">
-		<h2>Name Your Group</h2>
-		<p>(People will use this name to find and join your group)</p>
+		<h2>Create a Group</h2>
 		<%= render 'form' %>
-		<%= link_to 'Back', :back, class:'basicbutton' %>
+		<%= link_to 'Back', profile_path(current_user.profile), class:'lesserbutton' %>
 	</div>
 </div>

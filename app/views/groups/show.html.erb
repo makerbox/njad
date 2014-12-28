@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
-
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<h2><%= @group.name %></h2>
+<hr>
+  <% @group.invitations.each do |invitation| %>
+  	<i class="fa fa-user"></i> <%= invitation.email %> (pending invitation)<br>
+  <% end %>
+  <% @group.memberships.each do |member| %>
+  	<i class="fa fa-user"></i> <%= member.user.email %><br>
+  <% end %>
+<hr>
+<%= link_to 'Edit', edit_group_path(@group), class:'basicbutton' %>
+<%= link_to 'Back', group_path(@group), class:'lesserbutton' %>
+<%= link_to 'Leave Group', leave_group_group_path(@group), class:'dangerbutton' %>

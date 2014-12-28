@@ -1,5 +1,6 @@
 class ExtrasController < ApplicationController
   before_action :set_extra, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :xml, :json
 
   def index
     @extras = Extra.all

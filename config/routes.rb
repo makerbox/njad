@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :invitations
+
+  get 'memberships/create'
+
   get 'home/index'
 
   get 'home/about'
@@ -17,9 +21,17 @@ Rails.application.routes.draw do
 
   resources :photos
 
-  resources :products
+  resources :products do
+    member do
+      get :wish
+    end
+  end
 
-  resources :groups
+  resources :groups do
+    member do
+      get :leave_group
+    end
+  end
 
   resources :profiles
 

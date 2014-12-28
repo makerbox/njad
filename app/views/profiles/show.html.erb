@@ -34,6 +34,15 @@
 
 	<div class="col-sm-4">
 		<h2>My History</h2>
+		<% if @history %>
+			<% @history.each do |purchase| %>
+				<%= purchase.created_at %>
+				<%= purchase.product.title %>
+				<%= purchase.product.price %>
+			<% end %>
+		<% else %>
+			You have no purchases yet
+		<% end %>
 	</div>
 
 </div>

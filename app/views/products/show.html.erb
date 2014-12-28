@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-DON'T FORGET THE ADD TO WISHLIST BUTTON, SOCIAL SHARING, and REVIEW BUTTON FOR SIGNED IN USERS.
 <p>
   <strong>Name:</strong>
   <%= @product.name %>
@@ -12,7 +11,7 @@ DON'T FORGET THE ADD TO WISHLIST BUTTON, SOCIAL SHARING, and REVIEW BUTTON FOR S
 
 <p>
   <strong>Price:</strong>
-  <%= @product.price %>
+  $<%= @product.price %>
 </p>
 
 <p>
@@ -20,20 +19,12 @@ DON'T FORGET THE ADD TO WISHLIST BUTTON, SOCIAL SHARING, and REVIEW BUTTON FOR S
   <%= @product.capacity %>
 </p>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @product.longitude %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @product.latitude %>
-</p>
-
-<p>
-  <strong>Street:</strong>
-  <%= @product.street %>
-</p>
+<% if user_signed_in? %>
+  <p>
+    <strong>Street:</strong>
+    <%= @product.street %>
+  </p>
+<% end %>
 
 <p>
   <strong>Suburb:</strong>
@@ -50,20 +41,25 @@ DON'T FORGET THE ADD TO WISHLIST BUTTON, SOCIAL SHARING, and REVIEW BUTTON FOR S
   <%= @product.state %>
 </p>
 
-<p>
-  <strong>Contact name:</strong>
-  <%= @product.contact_name %>
-</p>
+<% if user_signed_in? %>
+  <p>
+    <strong>Contact name:</strong>
+    <%= @product.contact_name %>
+  </p>
 
-<p>
-  <strong>Contact number:</strong>
-  <%= @product.contact_number %>
-</p>
+  <p>
+    <strong>Contact number:</strong>
+    <%= @product.contact_number %>
+  </p>
 
-<p>
-  <strong>Contact email:</strong>
-  <%= @product.contact_email %>
-</p>
+  <p>
+    <strong>Contact email:</strong>
+    <%= @product.contact_email %>
+  </p>
+  <%= link_to 'Add to Wishlist', wish_product_path(@product), class:'basicbutton' %>
+  <%= link_to 'Write a Review', new_review_path(product: @product), class:'basicbutton' %>
+  PURCHASE
+  SHARE
+<% end %>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Back', products_path, class:'lesserbutton' %>

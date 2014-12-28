@@ -1,6 +1,8 @@
 <div class='navigation row'>
 	<div class='col-xs-2 logo'>
-		<%= image_tag 'logo.png', alt: 'Not Just a Date logo', class: 'logo' %>
+		<%= link_to home_index_path do %>
+			<%= image_tag 'logo.png', alt: 'Not Just a Date logo', class: 'logo' %>
+		<% end %>
 	</div>
 	<div class='col-xs-2 navbutton'>
 		<div id="title">Not Just a Date</div>

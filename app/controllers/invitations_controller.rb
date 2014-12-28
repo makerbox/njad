@@ -1,0 +1,48 @@
+class InvitationsController < ApplicationController
+  before_action :set_invitation, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :xml, :json
+
+  def index
+    @invitations = Invitation.all
+    respond_with(@invitations)
+  end
+
+  def show
+    respond_with(@invitation)
+  end
+
+  def new
+    @invitation = Invitation.new
+    respond_with(@invitation)
+  end
+
+  def edit
+  end
+
+  def create
+    @invitation = Invitation.new(invitation_params)
+    if @invitation.save
+        User.invite!({:email => @invitation.email}, current_user)
+    end
+    respond_with(@invitation)
+  end
+
+  def update
+    @invitation.update(invitation_params)
+    respond_with(@invitation)
+  end
+
+  def destroy
+    @invitation.destroy
+    respond_with(@invitation)
+  end
+
+  private
+    def set_invitation
+      @invitation = Invitation.find(params[:id])
+    end
+
+    def invitation_params
+      params.require(:invitation).permit(:email, :group_id)
+    end
+end

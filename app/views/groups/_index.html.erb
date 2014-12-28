@@ -1,8 +1,10 @@
-	<% @groups.each do |group| %>
-    <%= link_to group.name, group %>
+<% @groups.each do |group| %>
+    <%= link_to group, class: 'hollowbutton' do %>
+	    <i class='fa fa-users'></i> <%= group.name %>
+    <% end %>
     <%= link_to 'Edit', edit_group_path(group), class: 'lesserbutton' %>
     <%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' }, class: 'dangerbutton' %>
   
 <% end %>
-<br>
+<br><br>
 <%= link_to 'Make a Group', new_group_path, class:'basicbutton' %>

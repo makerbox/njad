@@ -1,12 +1,19 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authorize, only: [:new, :create, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   respond_to :html, :xml, :json
 
   def authorize
     if !current_user.has_role? :admin
       redirect_to :root
     end
+  end
+
+  def wish(product)
+    @wishproduct = WishProduct.new(user: current_user, product: product)
+    @wishproduct.save
   end
 
   def index

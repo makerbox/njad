@@ -1,5 +1,6 @@
 class AvailableDatesController < ApplicationController
   before_action :set_available_date, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :xml, :json
 
   def index
     @available_dates = AvailableDate.all

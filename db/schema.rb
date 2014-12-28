@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219063315) do
+ActiveRecord::Schema.define(version: 20141227052816) do
 
   create_table "available_dates", force: true do |t|
     t.datetime "avail"
@@ -36,11 +36,21 @@ ActiveRecord::Schema.define(version: 20141219063315) do
     t.datetime "updated_at"
   end
 
+  create_table "invitations", force: true do |t|
+    t.string   "email"
+    t.integer  "group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "invitations", ["group_id"], name: "index_invitations_on_group_id"
+
   create_table "memberships", force: true do |t|
     t.integer  "group_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
   end
 
   add_index "memberships", ["group_id"], name: "index_memberships_on_group_id"
@@ -129,7 +139,7 @@ ActiveRecord::Schema.define(version: 20141219063315) do
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "encrypted_password",     default: ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -140,9 +150,20 @@ ActiveRecord::Schema.define(version: 20141219063315) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "invitation_token"
+    t.datetime "invitation_created_at"
+    t.datetime "invitation_sent_at"
+    t.datetime "invitation_accepted_at"
+    t.integer  "invitation_limit"
+    t.integer  "invited_by_id"
+    t.string   "invited_by_type"
+    t.integer  "invitations_count",      default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true
+  add_index "users", ["invitations_count"], name: "index_users_on_invitations_count"
+  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "users_roles", id: false, force: true do |t|

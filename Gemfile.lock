@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/ryanb/nested_form.git
+  revision: 1b0689dfb4d230ceabd278eba159fcb02f23c68a
+  specs:
+    nested_form (0.3.2)
+
+GIT
   remote: https://github.com/stripe/stripe-ruby
   revision: 67da7aa9a74dd53dbc4a276e8d217fdd106be6e1
   specs:
@@ -153,6 +159,7 @@ DEPENDENCIES
   geocoder
   jbuilder (~> 2.0)
   jquery-rails
+  nested_form!
   rails (= 4.1.6)
   rolify
   sass-rails (~> 4.0.3)

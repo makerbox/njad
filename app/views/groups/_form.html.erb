@@ -1,4 +1,4 @@
-<%= form_for(@group) do |f| %>
+<%= nested_form_for(@group) do |f| %>
   <% if @group.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
@@ -12,11 +12,22 @@
   <% end %>
 
   <div class="field">
+    Name:<br>
     <%= f.text_field :name %>
   </div>
+  <hr>
+  <div class="field">
+    Members:<br>
+    <%= f.fields_for :invitations do |invitation| %>
+      <%= invitation.text_field :email %>
+      <%= f.link_to_remove 'remove member', class:'dangerbutton' %>
+    <% end %>
+    <%= f.link_to_add '+ invite another person', :invitations, class:'lesserbutton' %>
+  </div>
+  <hr>
   <div class="actions">
     <button type='submit' class='basicbutton'>
-      Create Group!
+      Done!
     </button>
   </div>
 <% end %>

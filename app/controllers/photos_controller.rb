@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :xml, :json
 
   def index
     @photos = Photo.all

@@ -1,6 +1,12 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :leave_group]
   respond_to :html
+
+  def leave_group
+    membership = Membership.find_by(group: @group, user: current_user)
+    membership.destroy
+    redirect_to profile_path(current_user.profile)
+  end
 
   def index
     @groups = Group.all
@@ -31,12 +37,12 @@ class GroupsController < ApplicationController
 
   def update
     @group.update(group_params)
-    respond_with(@group)
+    respond_with(@group, location: profile_path(current_user.profile))
   end
 
   def destroy
     @group.destroy
-    respond_with(@group)
+    respond_with(@group, location: profile_path(current_user.profile))
   end
 
   private
@@ -45,6 +51,6 @@ class GroupsController < ApplicationController
     end
 
     def group_params
-      params.require(:group).permit(:name)
+      params.require(:group).permit(:name, invitations_attributes: [:id, :email, :_destroy])
     end
 end

@@ -8,6 +8,9 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    if current_user.purchases.any?
+      @history = current_user.purchases.order(created_at: :desc)
+    end
     @groups = current_user.groups
     respond_with(@profile)
   end

@@ -13,6 +13,7 @@ body{
 a, a:hover, a:visited{
 	color: $brown;
 	text-decoration: none;
+	background-color: transparent;
 }
 
 .center-align{
@@ -108,11 +109,12 @@ a, a:hover, a:visited{
 	border-radius: 1em;
 	padding: .5em;
 	border: none;
-	background-color: $blue;
+	background-color: $blue !important;
 	display: inline-block;
+	text-decoration: none !important;
 }
 
-.lesserbutton, .lesserbutton :hover, .lesserbutton :visited{
+.dangerbutton, .dangerbutton :hover, .dangerbutton :visited{
 	font-family: bitter;
 	font-weight: bold;
 	text-align: center;
@@ -120,11 +122,12 @@ a, a:hover, a:visited{
 	border-radius: 1em;
 	padding: .5em;
 	border: none;
-	background-color: $pink;
+	background-color: $brown !important;
 	display: inline-block;
+	text-decoration: none !important;
 }
 
-.dangerbutton, .dangerbutton :hover, .dangerbutton :visited{
+.lesserbutton, .lesserbutton :hover, .lesserbutton :visited{
 	font-family: bitter;
 	font-weight: bold;
 	text-align: center;
@@ -132,8 +135,22 @@ a, a:hover, a:visited{
 	border-radius: 1em;
 	padding: .5em;
 	border: none;
-	background-color: $red;
+	background-color: $red !important;
 	display: inline-block;
+	text-decoration: none !important;
+}
+
+.hollowbutton{
+	font-family: bitter;
+	font-weight: bold;
+	text-align: center;
+	color: $brown !important;
+	border-radius: 1em;
+	border: .2em solid $brown !important;
+	padding: .3em;
+	background-color: transparent !important;
+	display: inline-block;
+	text-decoration: none !important;
 }
 
 .logo{

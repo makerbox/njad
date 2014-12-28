@@ -5,6 +5,7 @@ gem 'rails', '4.1.6'
 
 #form simplicity
 gem 'simple_form'
+gem 'nested_form', :git => "git://github.com/ryanb/nested_form.git"
 
 #monetization
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
