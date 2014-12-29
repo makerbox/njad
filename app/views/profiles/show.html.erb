@@ -30,6 +30,11 @@
 
 	<div class="col-sm-4">
 		<h2>My Wishlist</h2>
+		<% if current_user.wish_products %>
+			<% current_user.wish_products.each do |wish| %>
+				<%= link_to wish.product.name, product_path(wish.product) %><br>
+			<% end %>
+		<% end %>
 	</div>
 
 	<div class="col-sm-4">

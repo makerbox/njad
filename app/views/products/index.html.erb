@@ -12,7 +12,12 @@
 <div class="row">
   <% if @products.any? %>
     <% @products.each do |product| %>
-      <%= link_to product_path(product) do %>
+      <% if user_signed_in? %>
+        <% destination = product_path(product) %>
+      <% else %>
+        <% destination = new_user_registration_path %>
+      <% end %>
+      <%= link_to destination do %>
         <div class="col-md-4 col-xs-12" style="border: 1px solid black;">
           <div class="col-md-12 col-xs-6">
             images.first

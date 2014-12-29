@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'home/terms'
 
+  get 'home/admin'
+
   resources :extras
 
   resources :available_dates
@@ -24,6 +26,7 @@ Rails.application.routes.draw do
   resources :products do
     member do
       get :wish
+      get :remove_wish
     end
   end
 

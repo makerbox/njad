@@ -11,10 +11,20 @@ class ProductsController < ApplicationController
     end
   end
 
-  def wish(product)
-    @wishproduct = WishProduct.new(user: current_user, product: product)
-    @wishproduct.save
+  def wish
+    @wish_product = WishProduct.new
+    @wish_product.user = current_user
+    @wish_product.product = Product.find_by(id: params[:product_id])
+    @wish_product.save
+    redirect_to :back
   end
+
+  def remove_wish
+    product = Product.find_by(id: params[:product_id])
+    @wish_product = WishProduct.find_by(user: current_user, product: product)
+    @wish_product.destroy
+    redirect_to :back
+  end    
 
   def index
     @products = Product.all

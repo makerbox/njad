@@ -15,4 +15,8 @@ class HomeController < ApplicationController
 
   def terms
   end
+
+  def admin
+  end
+  
 end

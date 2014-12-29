@@ -56,7 +56,11 @@
     <strong>Contact email:</strong>
     <%= @product.contact_email %>
   </p>
-  <%= link_to 'Add to Wishlist', wish_product_path(@product), class:'basicbutton' %>
+  <% if current_user.wish_products.find_by(product: @product) %>
+    <%= link_to 'Remove from Wishlist', remove_wish_product_path(product_id: @product.id), class:'dangerbutton' %>
+  <% else %>
+    <%= link_to 'Add to Wishlist', wish_product_path(product_id: @product.id), class:'basicbutton' %>
+  <% end %>
   <%= link_to 'Write a Review', new_review_path(product: @product), class:'basicbutton' %>
   PURCHASE
   SHARE
