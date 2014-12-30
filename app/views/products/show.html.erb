@@ -62,7 +62,7 @@
     <%= link_to 'Add to Wishlist', wish_product_path(product_id: @product.id), class:'basicbutton' %>
   <% end %>
   <%= link_to 'Write a Review', new_review_path(product: @product), class:'basicbutton' %>
-  PURCHASE
+  <%= render 'purchases/new' %>
   SHARE
   <% if current_user.has_role? :admin %>
     <%= link_to 'Delete', product_path(@product), method: :delete, class:'
