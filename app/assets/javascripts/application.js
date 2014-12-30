@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require social-share-button
 //= require jquery_nested_form
+//=	require	ckeditor-jquery
 //= require_tree .

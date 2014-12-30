@@ -1,74 +1,73 @@
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <% if current_user.has_role? :admin %>
+      <%= link_to 'Delete', product_path(@product), method: :delete, class:'
+      dangerbutton' %>
+      <%= link_to 'Edit', edit_product_path(@product), class: 'dangerbutton' %>
+    <% end %>
+    <p id="notice"><%= notice %></p>
+    <h2><%= @product.name %></h2>
+    <%= social_share_button_tag(@product.name, :popup => "true") %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+    <p>
+      <%= @product.description.html_safe %>
+    </p>
 
-<p>
-  <strong>Price:</strong>
-  $<%= @product.price %>
-</p>
+    <p>
+      $<%= @product.price %>
+      <%= render 'purchases/new' %>
+    </p>
 
-<p>
-  <strong>Capacity:</strong>
-  <%= @product.capacity %>
-</p>
+    <p>
+      <strong>Max people:</strong>
+      <%= @product.capacity %>
+    </p>
 
-<% if user_signed_in? %>
-  <p>
-    <strong>Street:</strong>
-    <%= @product.street %>
-  </p>
-<% end %>
+    <p>
+      <strong>Street:</strong>
+      <%= @product.street %>
+    </p>
 
-<p>
-  <strong>Suburb:</strong>
-  <%= @product.suburb %>
-</p>
+    <p>
+      <strong>Suburb:</strong>
+      <%= @product.suburb %>
+    </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @product.city %>
-</p>
+    <p>
+      <strong>City:</strong>
+      <%= @product.city %>
+    </p>
 
-<p>
-  <strong>State:</strong>
-  <%= @product.state %>
-</p>
+    <p>
+      <strong>State:</strong>
+      <%= @product.state %>
+    </p>
 
-<% if user_signed_in? %>
-  <p>
-    <strong>Contact name:</strong>
-    <%= @product.contact_name %>
-  </p>
+    <p>
+      <strong>Contact name:</strong>
+      <%= @product.contact_name %>
+    </p>
 
-  <p>
-    <strong>Contact number:</strong>
-    <%= @product.contact_number %>
-  </p>
+    <p>
+      <strong>Contact number:</strong>
+      <%= @product.contact_number %>
+    </p>
 
-  <p>
-    <strong>Contact email:</strong>
-    <%= @product.contact_email %>
-  </p>
-  <% if current_user.wish_products.find_by(product: @product) %>
-    <%= link_to 'Remove from Wishlist', remove_wish_product_path(product_id: @product.id), class:'dangerbutton' %>
-  <% else %>
-    <%= link_to 'Add to Wishlist', wish_product_path(product_id: @product.id), class:'basicbutton' %>
-  <% end %>
-  <%= link_to 'Write a Review', new_review_path(product: @product), class:'basicbutton' %>
-  <%= render 'purchases/new' %>
-  SHARE
-  <% if current_user.has_role? :admin %>
-    <%= link_to 'Delete', product_path(@product), method: :delete, class:'
-    dangerbutton' %>
-    <%= link_to 'Edit', edit_product_path(@product), class: 'dangerbutton' %>
-  <% end %>
-<% end %>
+    <p>
+      <strong>Contact email:</strong>
+      <%= @product.contact_email %>
+    </p>
 
-<%= link_to 'Back', products_path, class:'lesserbutton' %>
+    <% if current_user.wish_products.find_by(product: @product) %>
+      <%= link_to 'Remove from Wishlist', remove_wish_product_path(product_id: @product.id), class:'dangerbutton' %>
+    <% else %>
+      <%= link_to 'Add to Wishlist', wish_product_path(product_id: @product.id), class:'basicbutton' %>
+    <% end %>
+
+  </div>
+  <div class="col-md-6">
+    images
+    <%= link_to 'Write a Review', new_review_path(product: @product), class:'basicbutton' %>
+    <%= link_to 'Back', products_path, class:'lesserbutton' %>
+  </div>
+</div>

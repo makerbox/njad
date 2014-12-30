@@ -2,5 +2,18 @@
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="<%= @product.name %>"
-          data-amount="<%= @product.price.to_i * 100 %>"></script>
+          data-image="http://localhost:3000/assets/logo.png"
+          data-amount="<%= @product.price.to_i * 100 %>"
+          data-label="Book Now"></script>
 <% end %>
+<style>
+.stripe-button{
+display: inline-block;
+}
+.stripe-button-el{
+	display:inline-block;
+}
+button {
+	display: inline-block;
+}
+</style>

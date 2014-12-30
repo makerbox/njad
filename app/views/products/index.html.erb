@@ -24,7 +24,7 @@
         <div class="col-md-4 col-xs-12" style="border: 1px solid black;">
           <div class="col-md-12 col-xs-6">
             <% if product.photos.any? %>
-              <%= image_tag product.photos.first.photo_url_url(:thumb) %>
+              <%= image_tag product.photos.last.photo_url_url %>
             <% end %>
           </div>
           <div class="col-md-12 col-xs-6">
@@ -37,7 +37,7 @@
           </div>
           <div class="col-md-12">
             <div class="col-xs-9">
-              <%= product.description %>
+              <%= product.description.html_safe %>
             </div>
             <div class="col-xs-3">
               $<%= product.price %>

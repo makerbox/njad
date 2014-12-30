@@ -17,6 +17,9 @@ gem 'devise'
 gem 'carrierwave'
 gem 'cloudinary'
 
+#richtext editor
+gem 'ckeditor_rails'
+
 #email
 gem 'devise_invitable'
 
