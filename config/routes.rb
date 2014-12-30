@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'purchases/new'
+
+  get 'purchases/create'
+
   resources :invitations
 
   get 'memberships/create'

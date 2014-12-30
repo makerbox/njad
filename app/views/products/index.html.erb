@@ -1,5 +1,8 @@
 <div class="row center-align">
   <div class="col-xs-12">
+    <% if current_user.has_role? :admin %>
+      <%= link_to '+ New Package', new_product_path, class: 'dangerbutton' %>
+    <% end %>
     <%= form_tag(products_path, method: "GET") do %>
         <%= text_field_tag(:search_input, nil, placeholder: "location, keyword, or date", id:'searchfield') %>
         <button type='submit' class='cleanbutton' id='searchbutton'>
@@ -20,7 +23,9 @@
       <%= link_to destination do %>
         <div class="col-md-4 col-xs-12" style="border: 1px solid black;">
           <div class="col-md-12 col-xs-6">
-            images.first
+            <% if product.photos.any? %>
+              <%= image_tag product.photos.first.photo_url_url(:thumb) %>
+            <% end %>
           </div>
           <div class="col-md-12 col-xs-6">
             <div class="col-md-9 product_title">
@@ -35,7 +40,7 @@
               <%= product.description %>
             </div>
             <div class="col-xs-3">
-              <%= product.price %>
+              $<%= product.price %>
             </div>
           </div>
         </div>

@@ -64,6 +64,11 @@
   <%= link_to 'Write a Review', new_review_path(product: @product), class:'basicbutton' %>
   PURCHASE
   SHARE
+  <% if current_user.has_role? :admin %>
+    <%= link_to 'Delete', product_path(@product), method: :delete, class:'
+    dangerbutton' %>
+    <%= link_to 'Edit', edit_product_path(@product), class: 'dangerbutton' %>
+  <% end %>
 <% end %>
 
 <%= link_to 'Back', products_path, class:'lesserbutton' %>

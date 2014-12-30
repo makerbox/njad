@@ -13,6 +13,10 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 #authentication
 gem 'devise'
 
+#images
+gem 'carrierwave'
+gem 'cloudinary'
+
 #email
 gem 'devise_invitable'
 

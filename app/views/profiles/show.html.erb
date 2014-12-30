@@ -32,7 +32,7 @@
 		<h2>My Wishlist</h2>
 		<% if current_user.wish_products %>
 			<% current_user.wish_products.each do |wish| %>
-				<%= link_to wish.product.name, product_path(wish.product) %><br>
+				<%= link_to wish.product.name, product_path(wish.product), class:'lesserbutton' %><br>
 			<% end %>
 		<% end %>
 	</div>
