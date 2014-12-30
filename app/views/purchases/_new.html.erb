@@ -1,9 +1,9 @@
-<%= form_tag purchases_path(product_id: @product.id) do %>
+<%= nested_form_tag purchases_path(product_id: @product.id) do %>
+
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="<%= @product.name %>"
           data-image="http://localhost:3000/assets/logo.png"
-          data-amount="<%= @product.price.to_i * 100 %>"
           data-label="Book Now"></script>
 <% end %>
 <style>
