@@ -21,9 +21,7 @@ class InvitationsController < ApplicationController
 
   def create
     @invitation = Invitation.new(invitation_params)
-    if @invitation.save
-        User.invite!({:email => @invitation.email}, current_user)
-    end
+    @invitation.save
     respond_with(@invitation)
   end
 

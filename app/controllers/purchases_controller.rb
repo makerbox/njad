@@ -16,6 +16,11 @@ class PurchasesController < ApplicationController
 		:description => 'not just a date purchase',
 		:currency    => 'aud'
 		)
+
+		@purchase = Purchase.new
+		@purchase.user = current_user
+		@purchase.product = product
+		@purchase.save
 		# send notification email to customer and Heloise
 		rescue Stripe::CardError => e
 		flash[:error] = e.message

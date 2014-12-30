@@ -1,4 +1,4 @@
-<%= nested_form_for(@product) do |f| %>
+<%= simple_nested_form_for(@product) do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -21,10 +21,10 @@
   </div>
   <div class='col-xs-12'>
     <%= f.label :price %><br>
-    <%= f.text_field :price %>
+    $<%= f.text_field :price %>
   </div>
   <div class='col-xs-12'>
-    <%= f.label :capacity %><br>
+    <%= f.label :capacity %>(max number of people)<br>
     <%= f.number_field :capacity %>
   </div>
   <div class='col-xs-12'>
@@ -56,9 +56,9 @@
     <%= f.text_field :contact_email %>
   </div>
   <div class='col-xs-12'>
-    <%= f.fields_for :photos do |photo_form| %>
-      <%= photo_form.file_field :photo_url, as: :file, label: false %>
-      <%= photo_form.link_to_remove "- remove photo", class: 'dangerbutton' %>
+    <%= f.fields_for :photos do |ff| %>
+      <%= ff.input :photo_url, as: :file %>
+      <%= ff.link_to_remove "- remove photo", class: 'dangerbutton' %>
     <% end %><hr>
     <%= f.link_to_add '+ add photo', :photos, class: 'lesserbutton' %>
   </div>

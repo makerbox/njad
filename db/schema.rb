@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141227052816) do
+ActiveRecord::Schema.define(version: 20141230104938) do
 
   create_table "available_dates", force: true do |t|
     t.datetime "avail"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20141227052816) do
     t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "sent"
   end
 
   add_index "invitations", ["group_id"], name: "index_invitations_on_group_id"

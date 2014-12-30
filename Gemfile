@@ -13,10 +13,6 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 #authentication
 gem 'devise'
 
-#images
-gem 'carrierwave'
-gem 'cloudinary'
-
 #richtext editor
 gem 'ckeditor_rails'
 
@@ -32,6 +28,10 @@ gem 'geocoder'
 
 #social sharing
 gem 'social-share-button'
+
+#images
+gem 'carrierwave'
+gem 'cloudinary'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

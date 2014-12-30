@@ -16,12 +16,12 @@
     <%= f.text_area :content %>
   </div>
   <div class="field">
-    <%= f.label :rating %><br>
+    Give your experience a rating (out of 5 stars):<br>
     <%= f.number_field :rating %>
   </div>
-  <%= f.hidden_field :product_id, input_html: { value: 'params[:product]' } %>
+  <%= f.hidden_field :product_id, value: params[:product_id] %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Done!', class:'basicbutton' %>
   </div>
 <% end %>

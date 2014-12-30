@@ -20,7 +20,7 @@
     Members:<br>
     <%= f.fields_for :invitations do |invitation| %>
       <%= invitation.text_field :email %>
-      <%= f.link_to_remove 'remove member', class:'dangerbutton' %>
+      <%= invitation.link_to_remove 'remove member', class:'dangerbutton' %>
     <% end %>
     <%= f.link_to_add '+ invite another person', :invitations, class:'lesserbutton' %>
   </div>

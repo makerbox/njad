@@ -41,9 +41,9 @@
 		<h2>My History</h2>
 		<% if @history %>
 			<% @history.each do |purchase| %>
-				<%= purchase.created_at %>
-				<%= purchase.product.title %>
-				<%= purchase.product.price %>
+				<%= purchase.product.name %>
+				$<%= purchase.product.price %><br>
+				Purchased <%= purchase.created_at %>
 			<% end %>
 		<% else %>
 			You have no purchases yet

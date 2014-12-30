@@ -3,12 +3,20 @@
 <h2><%= @group.name %></h2>
 <hr>
   <% @group.invitations.each do |invitation| %>
-  	<i class="fa fa-user"></i> <%= invitation.email %> (pending invitation)<br>
+  	<i class="fa fa-user"></i> <%= invitation.email %> (pending invitation)<hr>
   <% end %>
   <% @group.memberships.each do |member| %>
-  	<i class="fa fa-user"></i> <%= member.user.email %><br>
+  	<i class="fa fa-user"></i> <%= member.user.email %>
+		<% if member.user.wish_products %>
+			<% member.user.wish_products.each do |wish| %>
+				<%= link_to wish.product.name, product_path(wish.product), class:'lesserbutton' %>
+			<% end %>
+		<% end %>
+		<hr>
   <% end %>
 <hr>
-<%= link_to 'Edit', edit_group_path(@group), class:'basicbutton' %>
-<%= link_to 'Back', group_path(@group), class:'lesserbutton' %>
+<% if @group.memberships.first.user == current_user %>
+	<%= link_to 'Edit', edit_group_path(@group), class:'basicbutton' %>
+<% end %>
+<%= link_to 'Back', profile_path(current_user.profile), class:'lesserbutton' %>
 <%= link_to 'Leave Group', leave_group_group_path(@group), class:'dangerbutton' %>

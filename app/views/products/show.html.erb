@@ -66,8 +66,22 @@
 
   </div>
   <div class="col-md-6">
-    images
-    <%= link_to 'Write a Review', new_review_path(product: @product), class:'basicbutton' %>
+    <% @product.photos.each do |photo| %>
+      <div class="col-md-6">
+        <%= image_tag photo.photo_url_url %>
+      </div>
+    <% end %><br>
+    <h3>Reviews</h3>
+    <% @product.reviews.first(3).each do |review| %>
+      <div class="col-xs-12">
+        "<%= review.content %>"
+        <% review.rating.times do |star| %>
+        <i class='fa fa-star'></i>
+        <% end %>
+      </div>
+    <% end %>
+    <%= link_to 'Write a Review', new_review_path(product_id: @product.id), class:'basicbutton' %>
+    <%= link_to 'See all Reviews', reviews_path(product_id: @product.id), class:'basicbutton' %><br>
     <%= link_to 'Back', products_path, class:'lesserbutton' %>
   </div>
 </div>

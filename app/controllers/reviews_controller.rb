@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   respond_to :html, :xml, :json
   def index
-    @reviews = Review.all
+    @reviews = Review.where(product_id: params[:product_id])
     respond_with(@reviews)
   end
 
@@ -19,10 +19,9 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review.user = current_user
     @review = Review.new(review_params)
     @review.save
-    respond_with(@review)
+    respond_with(@review, location: product_path(@review.product_id))
   end
 
   def update

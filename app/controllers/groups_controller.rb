@@ -32,11 +32,17 @@ class GroupsController < ApplicationController
     @membership.group = @group
     @membership.save
     @group.save
+    @group.invitations.each do |send_invite|
+        User.invite!({:email => send_invite.email}, current_user)
+    end
     respond_with(@group, location: profile_path(current_user.profile))
   end
 
   def update
     @group.update(group_params)
+    @group.invitations.each do |send_invite|
+        User.invite!({:email => send_invite.email}, current_user)
+    end
     respond_with(@group, location: profile_path(current_user.profile))
   end
 
