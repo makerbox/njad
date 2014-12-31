@@ -1,29 +1,47 @@
 class PurchasesController < ApplicationController
-  def new
+  before_action :set_purchase, only: [:show, :edit, :update, :destroy]
+  respond_to :html
+  def index
+    @purchases = Purchase.all
+    respond_with(@purchases)
   end
 
-	def create
-		product = Product.find_by(params[:product_id])
-		@amount = product.price * 100
-		customer = Stripe::Customer.create(
-		:email => current_user.email,
-		:card  => params[:stripeToken]
-		)
+  def show
+    respond_with(@purchase)
+  end
 
-		charge = Stripe::Charge.create(
-		:customer    => customer.id,
-		:amount      => @amount.to_i,
-		:description => 'not just a date purchase',
-		:currency    => 'aud'
-		)
+  def new
+    @purchase = Purchase.new
+    @booking = Booking.find(params[:booking_id])
+    respond_with(@purchase)
+  end
 
-		@purchase = Purchase.new
-		@purchase.user = current_user
-		@purchase.product = product
-		@purchase.save
-		# send notification email to customer and Heloise
-		rescue Stripe::CardError => e
-		flash[:error] = e.message
-		redirect_to products_path
-	end
+  def edit
+  end
+
+  def create
+    @purchase = Purchase.new(purchase_params)
+    @purchase.user = current_user
+    @purchase.save
+    respond_with(@purchase)
+  end
+
+  def update
+    @purchase.update(purchase_params)
+    respond_with(@purchase)
+  end
+
+  def destroy
+    @purchase.destroy
+    respond_with(@purchase)
+  end
+
+  private
+    def set_purchase
+      @purchase = Purchase.find(params[:id])
+    end
+
+    def purchase_params
+      params.require(:purchase).permit(:user_id, :product_id, :date, :booking_id)
+    end
 end

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ProductExtraTest < ActiveSupport::TestCase
+class BookingTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

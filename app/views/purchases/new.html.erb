@@ -1,0 +1,8 @@
+<h1>Review Your Booking</h1>
+<%= @booking.product.name %>
+<%= @booking.date %>
+<% @booking.extras.each do |extra| %>
+	<%= extra.name %> - $<%= extra.price %><br>
+<% end %>
+<%= render 'form' %>
+

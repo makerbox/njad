@@ -22,7 +22,7 @@ class ExtrasController < ApplicationController
   def create
     @extra = Extra.new(extra_params)
     @extra.save
-    respond_with(@extra)
+    respond_with(@extra, location: new_extra_path)
   end
 
   def update

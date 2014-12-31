@@ -33,6 +33,15 @@ gem 'social-share-button'
 gem 'carrierwave'
 gem 'cloudinary'
 
+#calendar
+gem 'simple_calendar'
+
+#debugging
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets

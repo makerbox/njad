@@ -42,8 +42,11 @@
 		<% if @history %>
 			<% @history.each do |purchase| %>
 				<%= purchase.product.name %>
-				$<%= purchase.product.price %><br>
-				Purchased <%= purchase.created_at %>
+				<% Extra.where(id: purchase.extras).each do |extra| %>
+					<%= extra.name %> - $<%= extra.price %><br>
+				<% end %>
+				$<%= purchase.price %><br>
+				Purchased <%= purchase.created_at %><br><br>
 			<% end %>
 		<% else %>
 			You have no purchases yet
