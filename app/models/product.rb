@@ -2,9 +2,10 @@ class Product < ActiveRecord::Base
 	resourcify
 
 	has_many :available_dates
+	accepts_nested_attributes_for :available_dates, allow_destroy: true
 	has_many :product_extras
 	has_many :extras, through: :product_extras
-	accepts_nested_attributes_for :product_extras
+	accepts_nested_attributes_for :product_extras, allow_destroy: true
 	has_many :photos
 	accepts_nested_attributes_for :photos, allow_destroy: true
 	has_many :wish_products

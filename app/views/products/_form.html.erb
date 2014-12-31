@@ -70,7 +70,14 @@
     <% end %><hr>
     <%= f.link_to_add '+ add extra', :product_extras, class: 'lesserbutton' %>
   </div>
-
+  <div class='col-xs-12'>
+    <%= f.fields_for :available_dates do |ffff| %>
+      <%= ffff.hidden_field :product_id, value: @product.id %>
+      <%= ffff.datetime_select :avail %>
+      <%= ffff.link_to_remove "- remove availability", class: 'dangerbutton' %>
+    <% end %><hr>
+    <%= f.link_to_add '+ add availability', :available_dates, class: 'lesserbutton' %>
+  </div>
   <div class="actions">
     <%= f.submit class:'basicbutton' %>
   </div>

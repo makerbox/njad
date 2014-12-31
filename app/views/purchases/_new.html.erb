@@ -1,4 +1,4 @@
-<%= nested_form_tag purchases_path(product_id: @product.id) do %>
+<%= form_tag purchases_path(product_id: @product.id) do %>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
