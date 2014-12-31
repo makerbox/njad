@@ -19,4 +19,8 @@ class HomeController < ApplicationController
   def admin
   end
   
+  def subscribe
+    # send email address to H?
+  end
+
 end
