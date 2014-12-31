@@ -1,27 +1,9 @@
-<h1>Listing reviews</h1>
-
-<table class='table table-striped'>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Product</th>
-      <th>Content</th>
-      <th>Rating</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @reviews.each do |review| %>
-      <tr>
-        <td><%= review.user.email %></td>
-        <td><%= review.product %></td>
-        <td><%= review.content %></td>
-        <td><%= review.rating %></td>
-        <td><%= link_to 'Edit', edit_review_path(review) %></td>
-        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% @reviews.each do |review| %>
+  <div class="col-xs-12">
+    "<%= review.content %>"
+    <% review.rating.times do |star| %>
+      <i class='fa fa-star'></i>
     <% end %>
-  </tbody>
-</table>
-
+  </div>
+<% end %>
+    <%= link_to 'Back', :back, class:'lesserbutton' %>

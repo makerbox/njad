@@ -1,8 +1,10 @@
 <h1>Review Your Booking</h1>
-<%= @booking.product.name %>
-<%= @booking.date %>
+<%= @booking.product.name %> $<%= @booking.product.price %><br>
+<%= @booking.date.strftime('%e/%B/%Y') %>
 <% @booking.extras.each do |extra| %>
 	<%= extra.name %> - $<%= extra.price %><br>
 <% end %>
+<hr>
+<strong>Total price: $<%= @price / 100 %></strong>
 <%= render 'form' %>
 

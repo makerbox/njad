@@ -13,6 +13,9 @@ class PurchasesController < ApplicationController
   def new
     @purchase = Purchase.new
     @booking = Booking.find(params[:booking_id])
+    productcost = @booking.product.price * 100
+    extracost = @booking.extras.sum(:price) * 100
+    @price = (extracost + productcost).to_i
     respond_with(@purchase)
   end
 
@@ -21,9 +24,30 @@ class PurchasesController < ApplicationController
 
   def create
     @purchase = Purchase.new(purchase_params)
+    @price = @purchase.price.to_i
     @purchase.user = current_user
-    @purchase.save
-    respond_with(@purchase)
+    if @purchase.save
+      begin
+        token = params[:stripeToken]
+        # Create a Customer
+        customer = Stripe::Customer.create(
+          :card => token,
+          :description => current_user.email
+        )
+        charge = Stripe::Charge.create(
+          :customer    => customer.id,
+          :amount      => @price,
+          :description => 'Not Just a Date booking',
+          :currency    => 'aud'
+        )
+
+      rescue Stripe::CardError => e
+        flash[:error] = e.message
+        redirect_to new_purchase_path
+      else
+        respond_with(@purchase)
+      end
+    end
   end
 
   def update
@@ -42,6 +66,6 @@ class PurchasesController < ApplicationController
     end
 
     def purchase_params
-      params.require(:purchase).permit(:user_id, :product_id, :date, :booking_id)
+      params.require(:purchase).permit(:price, :user_id, :product_id, :date_selected, :booking_id)
     end
 end

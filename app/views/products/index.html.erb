@@ -4,7 +4,7 @@
       <%= link_to '+ New Package', new_product_path, class: 'dangerbutton' %>
     <% end %>
     <%= form_tag(products_path, method: "GET") do %>
-        <%= text_field_tag(:search_input, nil, placeholder: "location, keyword, or date", id:'searchfield') %>
+        <%= text_field_tag(:search_input, nil, placeholder: "location or keyword", id:'searchfield') %>
         <button type='submit' class='cleanbutton' id='searchbutton'>
           <i class='fa fa-search'></i>
         </button>

@@ -7,9 +7,9 @@
     <%= f.hidden_field :date, value: @date %>
     Customise your booking:
     <%= f.fields_for :booking_extras do |book| %>
-      <%= book.association :extra %><%= f.link_to_remove "- remove", class: 'dangerbutton' %>
+      <%= book.association :extra, label: 'choose an option:' %><%= f.link_to_remove "- remove", class: 'dangerbutton' %>
     <% end %>
-    <%= f.link_to_add '+ add an option', :booking_extras, class: 'lesserbutton' %>
+    <%= f.link_to_add '+ add an option', :booking_extras, class: 'lesserbutton', style:'margin: 1em;' %>
   </div>
 
   <div class="form-actions">

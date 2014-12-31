@@ -42,11 +42,13 @@
 		<% if @history %>
 			<% @history.each do |purchase| %>
 				<%= purchase.product.name %>
-				<% Extra.where(id: purchase.extras).each do |extra| %>
-					<%= extra.name %> - $<%= extra.price %><br>
-				<% end %>
-				$<%= purchase.price %><br>
-				Purchased <%= purchase.created_at %><br><br>
+				<% if Extra.where(id: purchase.booking.extras).any? %>
+					<% Extra.where(id: purchase.booking.extras).each do |extra| %>
+						( + <%= extra.name %> $<%= extra.price %> )<br>
+					<% end %>
+				<% end %><br>
+				Total : $<%= purchase.price / 100 %><br>
+				Purchased <%= purchase.created_at.strftime('%e/%B/%Y') %><br><br>
 			<% end %>
 		<% else %>
 			You have no purchases yet
