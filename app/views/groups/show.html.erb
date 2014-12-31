@@ -6,7 +6,7 @@
   	<i class="fa fa-user"></i> <%= invitation.email %> (pending invitation)<hr>
   <% end %>
   <% @group.memberships.each do |member| %>
-  	<i class="fa fa-user"></i> <%= member.user.email %>
+  	<i class="fa fa-user"></i> <%= member.user.email %><br>
 		<% if member.user.wish_products %>
 			<% member.user.wish_products.each do |wish| %>
 				<%= link_to wish.product.name, product_path(wish.product), class:'lesserbutton' %>

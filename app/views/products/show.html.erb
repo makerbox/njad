@@ -18,11 +18,6 @@
     </p>
 
     <p>
-      <strong>Max people:</strong>
-      <%= @product.capacity %>
-    </p>
-
-    <p>
       <strong>Street:</strong>
       <%= @product.street %>
     </p>
@@ -65,11 +60,13 @@
 
   </div>
   <div class="col-md-6">
-    <% @product.photos.each do |photo| %>
-      <div class="col-md-6">
-        <%= image_tag photo.photo_url_url %>
-      </div>
-    <% end %><br>
+    <div class='col-md-12'>
+      <% @product.photos.each do |photo| %>
+        <div class="col-md-6">
+          <%= image_tag photo.photo_url_url %>
+        </div>
+      <% end %><br>
+    </div>
     <h3>Reviews</h3>
     <% @product.reviews.first(3).each do |review| %>
       <div class="col-xs-12">

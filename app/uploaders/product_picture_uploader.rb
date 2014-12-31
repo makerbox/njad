@@ -1,14 +1,16 @@
 # encoding: utf-8
 
 class ProductPictureUploader < CarrierWave::Uploader::Base
-include Cloudinary::CarrierWave
+
+
+  include Cloudinary::CarrierWave
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  # storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -26,7 +28,7 @@ include Cloudinary::CarrierWave
   # end
 
   # Process files as they are uploaded:
-  process :scale => [400, 200]
+  # process :scale => [400, 200]
   #
   # def scale(width, height)
   #   # do something
