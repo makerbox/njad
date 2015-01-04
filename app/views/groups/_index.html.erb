@@ -3,8 +3,8 @@
 	    <i class='fa fa-users'></i> <%= group.name %>
     <% end %>
     <%= link_to 'Edit', edit_group_path(group), class: 'lesserbutton' %>
-    <%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' }, class: 'dangerbutton' %>
+    <%= link_to 'Break Connection', group, method: :delete, data: { confirm: 'Are you sure?' }, class: 'dangerbutton' %>
   
 <% end %>
 <br><br>
-<%= link_to 'Make a Group', new_group_path, class:'basicbutton' %>
+<%= link_to 'Make a Connection', new_group_path, class:'basicbutton' %>
