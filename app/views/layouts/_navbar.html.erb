@@ -13,10 +13,10 @@
 		<%= link_to 'Browse', products_path %>
 	</div>
 	<div class='col-xs-2 navbutton'>
-		<% if current_user.has_role? :admin %>
+		<% if user_signed_in? && (current_user.has_role? :admin) %>
 			<%= link_to 'Admin', home_admin_path %>
 		<% else %>
-			<% if current_user.profile %>
+			<% if user_signed_in? && current_user.profile %>
 				Hello, 
 				<%= current_user.profile.first_name %>
 			<% end %>

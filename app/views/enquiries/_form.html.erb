@@ -1,0 +1,16 @@
+
+<%= simple_form_for(@enquiry) do |f| %>
+  <%= f.error_notification %>
+
+	<div class="form-inputs">
+		<%= f.input :name %>
+		<%= f.input :email %>
+		<%= f.input :message %>
+	</div>
+	<div class='ribbon'>
+		<strong class='ribbon-content'>
+			<%= f.submit "Send", class:'actionbutton blue' %>
+		</strong>
+	</div>
+
+<% end %>

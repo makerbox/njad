@@ -1,6 +1,6 @@
 <div class="row center-align">
   <div class="col-xs-12">
-    <% if current_user.has_role? :admin %>
+    <% if user_signed_in? && (current_user.has_role? :admin) %>
       <%= link_to '+ New Package', new_product_path, class: 'dangerbutton' %>
     <% end %>
     <%= form_tag(products_path, method: "GET") do %>

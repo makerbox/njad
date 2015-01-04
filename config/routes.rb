@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :enquiries
+
   resources :bookings
 
   resources :purchases
@@ -12,14 +14,14 @@ Rails.application.routes.draw do
 
   get 'home/about'
 
-  get 'home/contact'
-
   get 'home/faq'
 
   get 'home/terms'
 
   get 'home/admin'
 
+  get 'home/subscribe'
+  
   resources :extras
 
   resources :available_dates

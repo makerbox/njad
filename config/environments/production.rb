@@ -75,4 +75,20 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.assets.raise_runtime_errors = true
+  config.action_mailer.default_url_options = { :host => 'notjustadate.com' }
+  config.default_url_options = { :host => 'notjustadate.com'}
+  config.action_mailer.smtp_settings = {
+    address:              'gator2011.hostgator.com',
+    port:                 465,
+    user_name:            ENV['EMAIL_USERNAME'],
+    password:             ENV['EMAIL_PASSWORD'],
+    authentication:       'login',
+    ssl:                  true,
+    enable_starttls_auto: true
+  }
+
 end

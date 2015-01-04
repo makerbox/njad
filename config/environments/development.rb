@@ -38,13 +38,13 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.assets.raise_runtime_errors = true
-  config.action_mailer.default_url_options = { :host => 'mattwerth.com' }
-  config.default_url_options = { :host => 'mattwerth.com'}
+  config.action_mailer.default_url_options = { :host => 'notjustadate.com' }
+  config.default_url_options = { :host => 'notjustadate.com'}
   config.action_mailer.smtp_settings = {
     address:              'gator2011.hostgator.com',
     port:                 465,
-    user_name:            'mattwerth@mattwerth.com',
-    password:             'lxczhw3',
+    user_name:            'info@notjustadate.com',
+    password:             'theMeetEatfactory6',
     authentication:       'login',
     ssl:                  true,
     enable_starttls_auto: true
