@@ -1,4 +1,5 @@
-<h2><%= t 'devise.invitations.edit.header' %></h2>
+<div class="row center-align">
+	<h2><%= t 'devise.invitations.edit.header' %></h2>
 
 <%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
   <%= devise_error_messages! %>
@@ -7,5 +8,10 @@
   <%= f.input :password %>
   <%= f.input :password_confirmation %>
 
-  <%= f.submit t("devise.invitations.edit.submit_button") %>
+	<div class='ribbon'>
+		<strong class='ribbon-content'>
+			<%= f.submit t("devise.invitations.edit.submit_button"), class:'actionbutton blue' %>
+		</strong>
+	</div>
 <% end %>
+</div>
