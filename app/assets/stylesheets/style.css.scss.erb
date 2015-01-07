@@ -7,19 +7,39 @@ $white: #FFFFFF;
 
 body{
 	font-family: Open Sans;
-	background-color: $pink;
+	background-image: url("<%= image_path 'background.jpg' %>");
+	background-size: contain;
+	background-repeat: repeat;
 }
 
 .splash {
 	font-size: 2em;
 	line-height: 125%;
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-top: -4em;
+}
+
+.round {
+	border-radius: 50%;
+	padding:40px;
 }
 
 .product {
 	height: 30em;
 }
 .container .row {
-	padding-bottom: 5em !important;
+	padding-bottom: 5em;
+}
+
+.splash .row {
+	border-radius: 1em;
+	padding: 1em !important;
+	padding-top: none;
+	margin: 1em;
+	margin-top: none;
+	border: 7px solid $brown;
+	width: 90%;
 }
 
 a, a:hover, a:visited{
@@ -56,8 +76,6 @@ a, a:hover, a:visited{
 .container {
 	padding-top: 9em;
 	background-color: $white;
-	border:  .5em solid $brown;
-	border-bottom: none;
 	padding-bottom: 1.5em;
 	min-height: 49em;
 }
@@ -71,7 +89,6 @@ a, a:hover, a:visited{
 	width: 100%;
 	bottom: 0;
 	left: 0;
-	border-top: .5em solid $brown;
 	background-color: $blue;
 	color: $red;
 }
@@ -83,7 +100,6 @@ a, a:hover, a:visited{
 .navigation {
 	font-size: 1.9em;
 	background-color: $blue;
-	border-bottom: .5em solid $brown;
 	font-family: bitter;
 	text-align: center;
 	position: fixed;
