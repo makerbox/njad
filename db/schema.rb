@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150104110956) do
+=======
+ActiveRecord::Schema.define(version: 20141231060154) do
+>>>>>>> purchases
 
   create_table "available_dates", force: true do |t|
     t.datetime "avail"
@@ -43,6 +47,7 @@ ActiveRecord::Schema.define(version: 20150104110956) do
   add_index "bookings", ["product_id"], name: "index_bookings_on_product_id"
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
 
+<<<<<<< HEAD
   create_table "enquiries", force: true do |t|
     t.string   "name"
     t.string   "email"
@@ -51,6 +56,8 @@ ActiveRecord::Schema.define(version: 20150104110956) do
     t.datetime "updated_at"
   end
 
+=======
+>>>>>>> purchases
   create_table "extras", force: true do |t|
     t.string   "name"
     t.text     "description"
