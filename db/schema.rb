@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150104110956) do
-=======
-ActiveRecord::Schema.define(version: 20141231060154) do
->>>>>>> purchases
 
   create_table "available_dates", force: true do |t|
     t.datetime "avail"
@@ -47,7 +43,6 @@ ActiveRecord::Schema.define(version: 20141231060154) do
   add_index "bookings", ["product_id"], name: "index_bookings_on_product_id"
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
 
-<<<<<<< HEAD
   create_table "enquiries", force: true do |t|
     t.string   "name"
     t.string   "email"
@@ -56,8 +51,6 @@ ActiveRecord::Schema.define(version: 20141231060154) do
     t.datetime "updated_at"
   end
 
-=======
->>>>>>> purchases
   create_table "extras", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -107,12 +100,10 @@ ActiveRecord::Schema.define(version: 20141231060154) do
     t.integer  "extra_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "purchase_id"
   end
 
   add_index "product_extras", ["extra_id"], name: "index_product_extras_on_extra_id"
   add_index "product_extras", ["product_id"], name: "index_product_extras_on_product_id"
-  add_index "product_extras", ["purchase_id"], name: "index_product_extras_on_purchase_id"
 
   create_table "products", force: true do |t|
     t.string   "name"
@@ -143,23 +134,11 @@ ActiveRecord::Schema.define(version: 20141231060154) do
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
-  create_table "purchase_extras", force: true do |t|
-    t.integer  "purchase_id"
-    t.integer  "extra_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "purchase_extras", ["extra_id"], name: "index_purchase_extras_on_extra_id"
-  add_index "purchase_extras", ["purchase_id"], name: "index_purchase_extras_on_purchase_id"
-
   create_table "purchases", force: true do |t|
     t.integer  "user_id"
     t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "date_selected"
-    t.decimal  "price"
     t.integer  "booking_id"
   end
 
