@@ -6,13 +6,15 @@ class NotificationMailer < ActionMailer::Base
   	mail(to: @user.email, subject: 'Welcome to Not Just a Date')
   end
 
-  def purchase_notification(user, purchase)
-  	@user = user
-  	mail(to: @user.email, subject: 'New purchase from Not Just a Date')
+  def purchase_notification(purchase)
+  	@user = current_user
+    @purchase = purchase
+  	mail(to: 'matt@notjustadate.com', subject: 'New purchase from Not Just a Date')
   end
 
-  def purchase_receipt(user, purchase)
-  	@user = user
+  def purchase_receipt(purchase)
+  	@user = current_user
+    @purchase = purchase
   	mail(to: @user.email, subject: 'Your Not Just a Date booking')
   end
 

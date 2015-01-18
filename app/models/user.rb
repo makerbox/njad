@@ -13,4 +13,10 @@ class User < ActiveRecord::Base
   has_many :products, through: :wish_products
   has_many :reviews
   has_many :products, through: :reviews
+  after_create :send_welcome
+
+  def send_welcome
+    NotificationMailer.signup_receipt(self).deliver
+  end
+
 end
