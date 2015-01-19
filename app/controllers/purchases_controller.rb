@@ -27,6 +27,8 @@ class PurchasesController < ApplicationController
     @price = @purchase.price.to_i
     @purchase.user = current_user
     if @purchase.save
+      EnquiryMailer.purchase_notification(@purchase).deliver
+      EnquiryMailer.user_purchase_notification(@purchase).deliver
       begin
         token = params[:stripeToken]
         # Create a Customer

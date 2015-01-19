@@ -63,7 +63,7 @@
     <div class='col-md-12'>
       <% @product.photos.each do |photo| %>
         <div class="col-md-6">
-          <%= image_tag photo.photo_url_url %>
+          <%= image_tag photo.photo_url_url(:thumb) %>
         </div>
       <% end %><br>
     </div>

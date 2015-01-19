@@ -1,0 +1,15 @@
+<h2>You have a new booking!</h2>
+Name: <%= purchase.user.profile.first_name %> <%= purchase.user.profile.last_name %><br>
+Phone: <%= purchase.user.profile.phone %> <br>
+<h3>Booking:</h3>
+<%= purchase.product.name %><br>
+<%= purchase.date_selected %><br>
+$<%= purchase.price %><br>
+Booking ID: <%= purchase.booking_id %><br>
+<% if BookingExtra.where(booking_id: purchase.booking_id) %>
+	Extras selected:<br>
+	<% BookingExtra.where(booking_id: purchase.booking_id).each do |bookextra| %>
+		<%= bookextra.extra.name %><br>
+		$<%= bookextra.extra.price %><hr>
+	<% end %>
+<% end %>
