@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150104110956) do
+ActiveRecord::Schema.define(version: 20150119014524) do
 
   create_table "available_dates", force: true do |t|
     t.datetime "avail"
@@ -190,8 +190,12 @@ ActiveRecord::Schema.define(version: 20150104110956) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.integer  "invitations_count",      default: 0
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true
   add_index "users", ["invitations_count"], name: "index_users_on_invitations_count"

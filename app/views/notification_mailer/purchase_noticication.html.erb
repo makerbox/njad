@@ -7,7 +7,7 @@ phone: <%= @user.profile.phone %>
 <hr><hr><hr>
 purchased <%= @booking.product.name %> for <%= @booking.date %>
 <hr>
-<% if @booking.extras %>
+<% if @booking.extras.any? %>
 	with:<br>
 	<% @booking.extras.each fo |x| %>
 		<%= x.name %> for $ <%= x.price %><br>

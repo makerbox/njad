@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    Name:<br>
+    Give your connection a name:<br>
     <%= f.text_field :name %>
   </div>
   <hr>
   <div class="field">
-    Members:<br>
     <%= f.fields_for :invitations do |invitation| %>
+      Enter their email address to send your invitation:
       <%= invitation.text_field :email %>
       <%= invitation.link_to_remove 'remove member', class:'dangerbutton' %>
     <% end %>
