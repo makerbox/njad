@@ -37,21 +37,6 @@
       <%= @product.state %>
     </p>
 
-    <p>
-      <strong>Contact name:</strong>
-      <%= @product.contact_name %>
-    </p>
-
-    <p>
-      <strong>Contact number:</strong>
-      <%= @product.contact_number %>
-    </p>
-
-    <p>
-      <strong>Contact email:</strong>
-      <%= @product.contact_email %>
-    </p>
-
     <% if current_user.wish_products.find_by(product: @product) %>
       <%= link_to 'Remove from Wishlist', remove_wish_product_path(product_id: @product.id), class:'dangerbutton' %>
     <% else %>
@@ -80,7 +65,7 @@
     <%= link_to 'See all Reviews', reviews_path(product_id: @product.id), class:'basicbutton' %><br>
     <h3>Select from these available dates to book:</h3>
     <%= month_calendar events: @product.available_dates do |date, avail| %>
-      <% if avail.any? %>
+      <% if avail.any? && !(date <= Date.tomorrow) %>
         <% link_to new_booking_path(product_id: @product, date: date) do %>
           <i class='fa fa-check'></i>
         <% end %>

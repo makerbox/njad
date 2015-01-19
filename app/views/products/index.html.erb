@@ -22,24 +22,22 @@
       <% end %>
       <%= link_to destination do %>
         <div class="col-md-4 col-xs-12 product">
-          <div class="col-md-12 col-xs-6">
+          <div class="col-xs-6">
             <% if product.photos.any? %>
               <%= image_tag product.photos.last.photo_url_url(:thumb)  %>
             <% end %>
           </div>
-          <div class="col-md-12 col-xs-6">
-            <div class="col-md-9 product_title">
+          <div class="col-xs-6">
+            <div class="product-title">
               <%= product.name %>
             </div>
-            <div class="col-md-3">
+            <p>
               <%= product.city %>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="col-xs-9">
+            </p>
+            <p>
               <%= product.description.html_safe %>
-            </div>
-            <div class="col-xs-3">
+            </p>
+            <div class="product-price">
               $<%= product.price %>
             </div>
           </div>

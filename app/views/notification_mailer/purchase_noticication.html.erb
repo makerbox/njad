@@ -1,0 +1,15 @@
+A new booking has been made!<hr><hr><hr>
+<%= @user.profile.first_name %> <%= @user.profile.last_name %>
+<hr>
+email: <%= @user.email %>
+<hr>
+phone: <%= @user.profile.phone %>
+<hr><hr><hr>
+purchased <%= @booking.product.name %> for <%= @booking.date %>
+<hr>
+<% if @booking.extras %>
+	with:<br>
+	<% @booking.extras.each fo |x| %>
+		<%= x.name %> for $ <%= x.price %><br>
+	<% end %>
+<% end %>
