@@ -23,6 +23,14 @@
     <%= f.label :price %><br>
     <%= f.text_field :price %>
   </div>
+  <div class="field">
+    Which package is this extra for?
+    <%= f.select(:product_id) do %>
+      <% @products.each do |c| %>
+        <%= content_tag(:option, c.name, value: c.id) %>
+      <% end %>
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

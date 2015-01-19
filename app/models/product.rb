@@ -11,7 +11,8 @@ class Product < ActiveRecord::Base
 	has_many :users, through: :reviews
 	has_many :bookings
 	has_many :users, through: :bookings
-
+	has_many :extras
+	
 	def full_street_address
     	[street, suburb, city, state].compact.join(',')
 	end

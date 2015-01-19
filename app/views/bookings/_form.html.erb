@@ -6,10 +6,19 @@
     <%= f.hidden_field :product_id, value: @product.id %>
     <%= f.hidden_field :date, value: @date %>
     Customise your booking:
-    <%= f.fields_for :booking_extras do |book| %>
-      <%= book.association :extra, label: 'choose an option:' %><%= f.link_to_remove "- remove", class: 'dangerbutton' %>
+    <% if @extras.any? %>
+      <%= f.fields_for :booking_extras do |book| %>
+        <%= book.select(:extra) do %>
+          <% @extras.each do |c| %>
+            <%= content_tag(:option, c.name, value: c.id) %>
+          <% end %>
+        <% end %>
+        <%= f.link_to_remove "- remove", class: 'dangerbutton' %>
+      <% end %>
+      <%= f.link_to_add '+ add an option', :booking_extras, class: 'lesserbutton', style:'margin: 1em;' %>
+    <% else %>
+      There are no customisable options for this package.
     <% end %>
-    <%= f.link_to_add '+ add an option', :booking_extras, class: 'lesserbutton', style:'margin: 1em;' %>
   </div>
 
   <div class="form-actions">

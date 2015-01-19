@@ -12,6 +12,7 @@ class ExtrasController < ApplicationController
   end
 
   def new
+    @products = Product.all
     @extra = Extra.new
     respond_with(@extra)
   end
@@ -22,7 +23,7 @@ class ExtrasController < ApplicationController
   def create
     @extra = Extra.new(extra_params)
     @extra.save
-    respond_with(@extra, location: new_extra_path)
+    respond_with(@extra, location: extras_path)
   end
 
   def update
@@ -41,6 +42,6 @@ class ExtrasController < ApplicationController
     end
 
     def extra_params
-      params.require(:extra).permit(:name, :description, :price)
+      params.require(:extra).permit(:name, :description, :price, :product_id)
     end
 end

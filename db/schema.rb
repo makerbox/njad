@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150119014524) do
+ActiveRecord::Schema.define(version: 20150119210303) do
 
   create_table "available_dates", force: true do |t|
     t.datetime "avail"
@@ -57,7 +57,10 @@ ActiveRecord::Schema.define(version: 20150119014524) do
     t.decimal  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "product_id"
   end
+
+  add_index "extras", ["product_id"], name: "index_extras_on_product_id"
 
   create_table "groups", force: true do |t|
     t.string   "name"

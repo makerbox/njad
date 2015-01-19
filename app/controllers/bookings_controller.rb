@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @product = Product.find(params[:product_id])
-    @extras = Extra.all
+    @extras = Extra.where(product_id: @product.id)
     @date = (params[:date]).to_date.strftime('%e/%B/%Y')
     respond_with(@booking)
   end
