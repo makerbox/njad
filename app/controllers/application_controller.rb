@@ -12,15 +12,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def after_sign_up_path_for(resource)
-    # if Invitation.find_by(email: self.email)
-    #   @membership = Membership.new
-    #   @membership.user = self
-    #   @membership.group = Invitation.find_by(email: self.email).group
-    #   @membership.save 
-    # else
-    #   NotificationMailer.signup_receipt(self).deliver
-    # end
-  end
-
 end
