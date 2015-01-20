@@ -5,6 +5,16 @@ $red: #D83962;
 $white: #FFFFFF;
 @import url(http://fonts.googleapis.com/css?family=Bitter:400,700|Open+Sans:400,700);
 
+@viewport{
+    zoom: 1.0;
+    width: extend-to-zoom;
+}
+
+@-ms-viewport{
+    width: extend-to-zoom;
+    zoom: 1.0;
+}
+
 body{
 	font-family: Open Sans;
 	background-image: url("<%= image_path 'background.jpg' %>");
