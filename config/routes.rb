@@ -6,8 +6,6 @@ Rails.application.routes.draw do
 
   resources :purchases
 
-  resources :invitations
-
   get 'memberships/create'
 
   get 'home/index'

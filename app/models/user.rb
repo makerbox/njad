@@ -13,17 +13,5 @@ class User < ActiveRecord::Base
   has_many :products, through: :wish_products
   has_many :reviews
   has_many :products, through: :reviews
-  after_save :welcome_user
-
-  def welcome_user
-      if Invitation.find_by(email: self.email)
-        @membership = Membership.new
-        @membership.user = self
-        @membership.group = Invitation.find_by(email: self.email).group
-        @membership.save 
-      else
-        NotificationMailer.signup_receipt(self).deliver
-      end
-  end
 
 end
